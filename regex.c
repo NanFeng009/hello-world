@@ -2,9 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <regex.h>
+//http://www.lemoda.net/c/unix-regex/
+/* The following is the size of a buffer to contain any error message
+ * encountered when the regular expression is complied. */
 
 #define MAX_ERROR_MSG 0x1000
-
+/* compile the regular expression described by "regex_text" into "r". */
 static int compile_regex (regex_t * r, const char * regex_text)
 {
     int status = regcomp(r, regex_text, REG_EXTENDED|REG_NEWLINE);
@@ -15,11 +18,15 @@ static int compile_regex (regex_t * r, const char * regex_text)
        return 1;
     }
 }
+/* match the string in "to_match" against the compiled regular expression in "r". */
 
 static int match_regex(regex_t * r, const char * to_match)
 {
+    /* "p" is a pointer into the string which points to the end of the previous match */
     const char * p = to_match;
+    /* "N_matches" is the maximum number of matches allowed. */
     const int n_matches = 10;
+    /* "M" contains the matches found. */
     regmatch_t m[n_matches];
 
     while(1){
