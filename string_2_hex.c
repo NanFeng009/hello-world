@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void _print_hex(uint32_t src_len, uint8_t* src_str)
+static void _print_hex(uint32_t src_len, uint8_t* src_str)
 {
     int i, j;
     int dst_len = src_len * 2 + 2;
