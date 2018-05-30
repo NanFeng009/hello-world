@@ -2,6 +2,16 @@
  
 #include <stdio.h>
 #include <string.h>
+/* for implement print function */
+static void printf(const char *fmt, ...)
+{
+    char buf[BUFSIZ] = {'\0'};
+    va_list ap;
+    va_start(ap, fmt);
+    vsnprintf(buf, BUFSIZ, fmt, ap);
+    va_end(ap);
+    ocall_print_string(buf);
+}
 
 static void _print_hex(uint32_t src_len, uint8_t* src_str)
 {
