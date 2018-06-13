@@ -14,7 +14,7 @@
 int main()
 {
     const unsigned char  cert_data[] = {
-#include "/home/dashuaic/share/temp_1.txt"
+#include "temp_1.txt"
     };
 
     int cert_data_size = sizeof( cert_data);
