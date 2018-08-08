@@ -109,7 +109,7 @@ int main(int argc, char** argv)
     const char * new_file = "new_x509_cert_epid.pem";
     STACK_OF(X509) * certs = NULL;
 
-    int ret = load_certs_file(&certs, file, 1);
+    int ret = load_certs_file(&certs, file, 1); // # define X509_FILETYPE_PEM     1 in x509.h
     printf("load_certs_file ret = %d\n", ret);
     if(certs == NULL)
         printf("ERROR certs == NULL\n");
