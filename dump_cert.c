@@ -9,7 +9,9 @@
 /*
  * gcc dump_cert.c -lssl -lcrypto -ldl -L/usr/local/lib
  */
-
+/*
+ * https://github.com/libtor/openssl/blob/master/demos/x509/mkcert.c
+ */
 
 int main()
 {
